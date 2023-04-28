@@ -17,7 +17,7 @@ const zip = () => {
         setLoader(true)
         const weatherInfo = await axios.get(
           `${baseUrl}zip=${Number(zip)},us&appid=${appId}`
-        );
+        ).catch((err) => { setLoader(false); });
         setWeatherData(weatherInfo?.data)
         setLoader(false)
       };
